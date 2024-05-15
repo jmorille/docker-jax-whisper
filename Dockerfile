@@ -17,9 +17,6 @@ RUN \
     build-essential \
     python3-dev \
     python3-venv && \
-  if [ -z ${WHISPER_VERSION+x} ]; then \
-    WHISPER_VERSION=$(curl -sL  https://pypi.python.org/pypi/wyoming-faster-whisper/json |jq -r '. | .info.version'); \
-  fi && \
   python3 -m venv /lsiopy && \
   pip install -U --no-cache-dir \
     pip \
