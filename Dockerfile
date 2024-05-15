@@ -11,6 +11,7 @@ LABEL maintainer="thespad"
 
 ENV HOME=/config
 
+
 RUN \
   apt-get update && \
   apt-get install -y --no-install-recommends \
@@ -28,6 +29,8 @@ RUN \
   rm -rf \
     /var/lib/apt/lists/* \
     /tmp/*
+
+COPY wyoming /wyoming
 
 COPY root/ /
 
