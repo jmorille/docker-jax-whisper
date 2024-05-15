@@ -5,9 +5,9 @@ name: Build CI
 
 on:
   push:
-    branches: [ "master" ]
+    branches: [ "master", "main", "tpu" ]
   pull_request:
-    branches: [ "master" ]
+    branches: [ "master", "main", "tpu" ]
   release:
     types: [created]
 
