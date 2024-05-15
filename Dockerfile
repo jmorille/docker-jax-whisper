@@ -20,9 +20,9 @@ RUN \
   python3 -m venv /lsiopy && \
   pip install -U --no-cache-dir \
     pip \
-    wheel 
-RUN  pip install git+https://github.com/sanchit-gandhi/whisper-jax.git 
-RUN  apt-get purge -y --auto-remove \
+    wheel && \
+  pip install git+https://github.com/sanchit-gandhi/whisper-jax.git && \
+  apt-get purge -y --auto-remove \
     build-essential git \
     python3-dev && \
   rm -rf \
