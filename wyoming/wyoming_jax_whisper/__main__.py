@@ -5,7 +5,7 @@ import logging
 import re
 from functools import partial
 
-import faster_whisper
+import jax_whisper
 from wyoming.info import AsrModel, AsrProgram, Attribution, Info
 from wyoming.server import AsyncServer
 
@@ -21,7 +21,7 @@ async def main() -> None:
     parser.add_argument(
         "--model",
         required=True,
-        help="Name of faster-whisper model to use",
+        help="Name of jax-whisper model to use",
     )
     parser.add_argument("--uri", required=True, help="unix:// or tcp://")
     parser.add_argument(
@@ -94,11 +94,11 @@ async def main() -> None:
     wyoming_info = Info(
         asr=[
             AsrProgram(
-                name="faster-whisper",
-                description="Faster Whisper transcription with CTranslate2",
+                name="jax-whisper",
+                description="Jax Whisper transcription with CTranslate2",
                 attribution=Attribution(
-                    name="Guillaume Klein",
-                    url="https://github.com/guillaumekln/faster-whisper/",
+                    name="Sanchit Gandhi",
+                    url="https://github.com/sanchit-gandhi/whisper-jax/",
                 ),
                 installed=True,
                 version=__version__,
@@ -121,7 +121,7 @@ async def main() -> None:
 
     # Load model
     _LOGGER.debug("Loading %s", args.model)
-    whisper_model = faster_whisper.WhisperModel(
+    whisper_model = jax_whisper.WhisperModel(
         args.model,
         download_root=args.download_dir,
         device=args.device,
