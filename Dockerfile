@@ -14,7 +14,7 @@ ENV HOME=/config
 RUN \
   apt-get update && \
   apt-get install -y --no-install-recommends \
-    build-essential \
+    build-essential git \
     python3-dev \
     python3-venv && \
   python3 -m venv /lsiopy && \
@@ -23,7 +23,7 @@ RUN \
     wheel 
 RUN  pip install git+https://github.com/sanchit-gandhi/whisper-jax.git 
 RUN  apt-get purge -y --auto-remove \
-    build-essential \
+    build-essential git \
     python3-dev && \
   rm -rf \
     /var/lib/apt/lists/* \
