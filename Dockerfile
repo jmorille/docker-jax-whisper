@@ -36,4 +36,5 @@ COPY root/ /
 
 VOLUME /config
 
+EXPOSE 7860 
 EXPOSE 10300
